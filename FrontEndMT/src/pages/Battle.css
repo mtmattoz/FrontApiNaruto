@@ -83,7 +83,7 @@
     width: 18vw;
     top: 40vh;
     left: 9vw;
-    background-color: #000136;
+    background-color: #9e967f;
    border: 3px solid;
     border-image: linear-gradient(
     45deg,
@@ -119,7 +119,7 @@
 }
 
 .Titulo{
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
 }
 
