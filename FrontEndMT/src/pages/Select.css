@@ -82,6 +82,19 @@
     background-position: 20% 80%;
 }
 
+.EnemyCard img{
+    position: relative;
+    left: 5vw;
+    top: 4vh;
+}
+
+.PlayerCard img{
+    position: relative;
+    top: 4vh;
+    left: 1vw;
+}
+
+
 .selecoes{
     border: 8px solid;
     border-image: linear-gradient(
@@ -119,5 +132,58 @@
     #7a7a7a,
     #f0f0f0,
     #4a4a4a) 1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    cursor:pointer;
+    transition:.2s;
 }
+
+.personagem:hover{
+    transform:scale(1.05);
+}
+
+.personagem img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    
+}
+
+.botao{
+    position: absolute;
+    width: 20vw;
+    height: 20vh;
+    overflow: hidden;
+    left: 40vw;
+    top: 45vh;
+}
+
+.botao img{
+    max-width: 100%;
+    max-height: 100%;
+
+}
+
+.botao:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.ladoAtivo{
+box-shadow:
+0 0 30px red;
+}
+
+.PlayerCard,.EnemyCard{
+cursor:pointer;
+}
+
+.ativo{
+    border:4px solid red;
+}
+
 
