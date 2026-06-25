@@ -7,8 +7,7 @@
    
 }
 
-.AtkBar{
-    
+.AtkBar {
     width: 30vw;
     height: 13.5vh;
     position: relative;
@@ -17,6 +16,17 @@
     background-image: url('imagens/whitebar/AtkBar.png');
     background-size: contain;
     background-repeat: no-repeat;
+    
+    /* O MOTOR DO FLEXBOX */
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 1vw; /* Substituiu os 15px. Dá 1% da largura da tela de distância */
+    
+    /* PADDING RESPONSIVO */
+    box-sizing: border-box;
+    padding: 1.5vh 1.5vw; /* Substituiu os pixels. Mantém o botão dentro do espaço branco */
 }
 
 .DescBar{
@@ -31,22 +41,36 @@
 }
 
 .ataque{
-    border: 1px solid brown;
-    width: 25vw;
-    height: 7vh;
-    display: grid;
-    position: relative;
-    top: 20%;
-    left: 7%;
+    flex: 1; 
+    height: 60%; 
+    border-radius: 1vh;
+    border: 0.2vh solid #000000;
+    font-size: larger;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(to bottom, #fff,#d4d4d4);
+    box-shadow: 0 0.6vh 0 #4e4242;
+    background-color: rgba(122, 110, 110, 0.5); 
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.ataque:hover {
+    filter: brightness(0.9);
+}
+
+.ataque:active{
+    transform: translate(0.6vh);
+    box-shadow: 0 0 0 #000000;
 }
 
 .descricao{
-    border: 1px solid green;
     width: 10vw;
     height: 9vh;
     position: relative;
     top: 1.4vh;
     left: 1.3vw;
+    font-size: larger;
+    font-weight: bold;
 }
 
 .jogador{
@@ -85,42 +109,49 @@
 }
 
 .log {
-    /* 1. MANTÉM SUAS MEDIDAS E POSIÇÃO ORIGINAIS INTACTAS */
+    /* 1. MEDIDAS E POSIÇÃO */
     position: absolute;
-    height: 33vh;
-    width: 18vw;
-    top: 40vh;
-    left: 9vw;
+    height: 45vh; 
+    width: 30vw;
+    top: 30vh;
+    left: 2vw;
 
-    /* 2. REMOVE A BORDA METÁLICA E O FUNDO ANTIGO */
-    border: none;
+    /* 2. O PERGAMINHO DE FUNDO */
     background-color: transparent;
-
-    /* 3. COLOCA O PERGAMINHO COMO FUNDO */
-    background-image: url('imagens/Pergaminho.png'); /* Ajuste se o caminho for outro */
-    background-size: 100% 100%; /* Estica o pergaminho para cobrir toda sua div */
+    background-image: url('imagens/PergaminhoLog.png'); 
+    background-size: 100% 100%; 
     background-repeat: no-repeat;
+    border: none; /* Limpamos as bordas de teste */
 
-    /* 4. A MÁGICA PARA O TEXTO NÃO VAZAR PARA A MADEIRA DO PERGAMINHO */
+    /* 3. A ESTRUTURA TÁTICA (Flexbox) */
     box-sizing: border-box;
-    /* Valores: Topo | Direita | Baixo | Esquerda */
-    padding: 45px 25px 45px 25px; 
-
-    /* 5. FORMATAÇÃO DA LISTA DE ATAQUES */
-    color: #2b2b2b; /* Cor escura estilo tinta */
     display: flex;
     flex-direction: column;
-    overflow-y: auto; /* Cria barra de rolagem se o histórico ficar muito grande */
+    color: #2b2b2b;
+    
+    /* PADDING: Topo | Direita | Baixo | Esquerda */
+    /* Esse espaço garante que nada vai encostar na madeira do desenho */
+    padding: 8vh 3vw 6vh 3vw;
 }
 
-/* Deixa a barra de rolagem mais discreta pra não estragar a imersão */
-.log::-webkit-scrollbar {
-    width: 4px;
+.conteudoLog{
+    flex: 1; 
+    overflow-y: auto; 
+    
+    min-height: 0; 
+
+    padding-left: 1vw; 
+    padding-right: 1vw;
 }
-.log::-webkit-scrollbar-thumb {
+
+.conteudoLog::-webkit-scrollbar {
+    width: 0.5vw;
+}
+.conteudoLog::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+    border-radius: 1vh;
 }
+
 
 @keyframes anim{
     0%{
@@ -147,8 +178,18 @@
 }
 
 .Titulo{
-    color: rgb(0, 0, 0);
+    color: #ffffff; /* Cor escura pra dar contraste no amarelo */
     text-align: center;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 2vh; /* Espaço entre o título e os ataques */
+    
+    /* A ZAGA: Isso aqui proíbe o título de encolher ou sumir */
+    flex-shrink: 0;
+    position: absolute;
+    top: 3vh;
+    left: 20vh;
+    font-size: 100%;
 }
 
 .StatsJogador{
@@ -178,19 +219,17 @@
 }
 
 .infosJogador{
-    border: 1px solid blue;
     height: 8vh;
     width: 10vw;
     position: relative;
     left: 0.8vw;
-    top: 1.5vh;
+    top: 0.02vh;
 }
 
 .infosRival{
-    border: 1px solid red;
     height: 8vh;
     width: 10vw;
     position: relative;
     left: 0.8vw;
-    top: 1.5vh;
+    top: 0.02vh;
 }

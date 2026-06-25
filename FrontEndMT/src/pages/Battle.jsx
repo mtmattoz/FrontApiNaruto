@@ -117,7 +117,9 @@ function Batalha() {
         <div className="fbody">
             <div className="log">
                 <p className="Titulo">Registro de Batalha</p>
-                {historico.map((item, index) => <p key={index}>{item}</p>)}
+                <div className="conteudoLog">
+                    {historico.map((item, index) => <p key={index}>{item}</p>)}
+                </div>
             </div>
 
             <div className="StatsJogador">
