@@ -84,21 +84,42 @@
     max-height: 100%;
 }
 
-.log{
+.log {
+    /* 1. MANTÉM SUAS MEDIDAS E POSIÇÃO ORIGINAIS INTACTAS */
     position: absolute;
     height: 33vh;
     width: 18vw;
     top: 40vh;
     left: 9vw;
-    background-color: #9e967f;
-   border: 3px solid;
-    border-image: linear-gradient(
-    45deg,
-    #3a3a3a,
-    #d9d9d9,
-    #7a7a7a,
-    #f0f0f0,
-    #4a4a4a) 1;
+
+    /* 2. REMOVE A BORDA METÁLICA E O FUNDO ANTIGO */
+    border: none;
+    background-color: transparent;
+
+    /* 3. COLOCA O PERGAMINHO COMO FUNDO */
+    background-image: url('imagens/Pergaminho.png'); /* Ajuste se o caminho for outro */
+    background-size: 100% 100%; /* Estica o pergaminho para cobrir toda sua div */
+    background-repeat: no-repeat;
+
+    /* 4. A MÁGICA PARA O TEXTO NÃO VAZAR PARA A MADEIRA DO PERGAMINHO */
+    box-sizing: border-box;
+    /* Valores: Topo | Direita | Baixo | Esquerda */
+    padding: 45px 25px 45px 25px; 
+
+    /* 5. FORMATAÇÃO DA LISTA DE ATAQUES */
+    color: #2b2b2b; /* Cor escura estilo tinta */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Cria barra de rolagem se o histórico ficar muito grande */
+}
+
+/* Deixa a barra de rolagem mais discreta pra não estragar a imersão */
+.log::-webkit-scrollbar {
+    width: 4px;
+}
+.log::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
 }
 
 @keyframes anim{

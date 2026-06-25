@@ -1,0 +1,165 @@
+/* CONTAINER PRINCIPAL DA TELA DE FIM */
+.FimContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #111; /* Cor de fundo caso não tenha imagem, ajuste se precisar */
+}
+
+/* TÍTULOS */
+.FimTitulo {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.FimSubtitulo {
+    font-size: 2rem;
+    color: #0edd07;
+}
+
+/* ÁREA DO GIF DO VENCEDOR */
+.GifContainer {
+    margin: 5px 0;
+    width: 500px;
+    height: 500px;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.GifContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+/* ÁREA DOS BOTÕES PNG */
+.BotoesContainer {
+    display: flex;
+    gap: 50px;
+}
+
+.BotaoImagem {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.2s;
+}
+
+.BotaoImagem:hover {
+    transform: scale(1.05); /* Dá um efeitinho de zoom ao passar o mouse */
+}
+
+.BotaoImagem img {
+    width: 200px;
+    object-fit: contain;
+}
+
+/* =========================================
+   ESTILOS DO PERGAMINHO (HISTÓRICO LATERAL)
+   ========================================= */
+.PergaminhoContainer {
+    position: absolute;
+    right: 2vw;
+    top: 17.5vh;
+    width: 400px;
+    height: 60vh;
+    background-image: url('imagens/Pergaminho.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #2b2b2b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    
+    /* AS DUAS LINHAS QUE RESOLVEM O PROBLEMA: */
+    box-sizing: border-box; 
+    
+    /* Valores: Topo | Direita | Baixo | Esquerda */
+    /* Aumente ou diminua esses números para encaixar perfeitamente no seu PNG */
+    padding: 90px 45px 80px 45px; 
+}
+
+.PergaminhoTitulo {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 5px;
+    color: rgb(255, 255, 255);
+    position: relative;
+    bottom: 4vh;
+    
+}
+
+.PergaminhoConteudo {
+    overflow-y: auto;
+    width: 100%;
+    flex: 1;
+    padding-right: 10px;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.2); /* Fundo leve para destacar do pergaminho */
+}
+
+/* Scrollbar personalizada para o pergaminho ficar bonito */
+.PergaminhoConteudo::-webkit-scrollbar {
+    width: 6px;
+}
+.PergaminhoConteudo::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.PartidaItem {
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #666;
+    padding-bottom: 10px;
+}
+
+.PartidaId {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.VencedorVerde {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.PerdedorVermelho {
+    color: red;
+    font-weight: bold;
+}
+
+.BotaoFechar {
+    margin-top: 15px;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    background: #ccc;
+    border: 1px solid #333;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.BotaoFechar:hover {
+    background: #bbb;
+}
+
+.FraseCampeao {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #cccccc; /* Cinza claro elegante */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    max-width: 600px;
+    position: relative;
+    top: -13vh;
+}

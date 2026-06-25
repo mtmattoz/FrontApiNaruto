@@ -1,9 +1,11 @@
 import './Battle.css';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom'; // 1. Adicionado o useNavigate aqui
 import { useEffect, useState } from 'react';
 
 function Batalha() {
     const location = useLocation();
+    const navigate = useNavigate(); // 2. Instanciado o navigate aqui
+
     const jogador = location.state?.jogador;
     const inimigo = location.state?.inimigo;
     const partidaId = location.state?.partidaId;
@@ -65,12 +67,26 @@ function Batalha() {
             // 2. Atualiza o Histórico (Log)
             const novoHistorico = [...historico, `${jogador.nome} usou ${ataque.nome}!`];
 
+            // 3. A MUDANÇA ESTÁ AQUI NESTE BLOCO IF:
             if (resultado.finalizada) {
                 const nomeGanhador = resultado.vencedor === 'JOGADOR' ? jogador.nome : inimigo.nome;
+                
+                // Formata o nome para buscar a imagem correta (ex: "Rock Lee" vira "rocklee")
+                const fotoLimpa = nomeGanhador.toLowerCase().replace(/\s/g, '');
+
                 novoHistorico.push(`FIM DE JOGO! O vencedor foi: ${nomeGanhador}`);
                 setHistorico(novoHistorico);
                 
-                alert(`Batalha Encerrada!\n Vencedor: ${nomeGanhador}`);
+                // Aguarda 1.5 segundos para o jogador ver o HP zerar e a mensagem de Fim de Jogo, depois muda a tela
+                setTimeout(() => {
+                    navigate('/fim', { 
+                        state: { 
+                            vencedorNome: nomeGanhador,
+                            fotoVencedor: fotoLimpa
+                        } 
+                    });
+                }, 1500);
+
                 return; // Para a execução aqui para não adicionar a linha do else
             } else {
                 // 1. Calcula o dano exato: Vida antiga do React MENOS a vida nova vinda do Java
@@ -112,7 +128,7 @@ function Batalha() {
             </div>
 
             <div className="jogador">
-                <img src={`imagens/personagens/${jogador.nome}Costa.png`} alt="" />
+                <img src={`imagens/personagens/${jogador?.nome}Costa.png`} alt="" />
             </div>
 
             <div className="StatsRival">
@@ -123,7 +139,7 @@ function Batalha() {
             </div>
 
             <div className="rival">
-                <img src={`imagens/personagens/${inimigo.nome}Frente.png`} alt="" />
+                <img src={`imagens/personagens/${inimigo?.nome}Frente.png`} alt="" />
             </div>
 
             <div className="AtkBar">
