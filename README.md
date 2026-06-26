@@ -1,10 +1,7 @@
 readme_content = """# 🍥 Naruto Pixel Battle Game - Front-end
 
 > Um jogo de estratégia e combate por turnos totalmente interativo baseado no universo de Naruto, construído com foco em fluidez, gerenciamento de estado dinâmico e consumo de API REST.
-
-![Preview do Jogo](./public/imagens/PreviewJogo.jpeg)
-![Preview da Partida](./public/imagens/PreviewPartida.jpeg)               
-
+        
 ## Sobre o Projeto
 O **Naruto Pixel Battle Game** é uma aplicação web que simula confrontos entre os shinobis do anime. O projeto foi estruturado para fornecer uma experiência de usuário (UX) gamificada, dividida em fluxos claros e lógicos, consumindo a lógica de persistência e regras vindas da API em Java.
 
