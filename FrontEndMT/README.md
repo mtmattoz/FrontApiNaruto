@@ -1,16 +1,49 @@
-# React + Vite
+readme_content = """# 🍥 Naruto Pixel Battle Game - Front-end
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Um jogo de estratégia e combate por turnos totalmente interativo baseado no universo de Naruto, construído com foco em fluidez, gerenciamento de estado dinâmico e consumo de API REST.
 
-Currently, two official plugins are available:
+![Preview do Jogo](./public/imagens/PreviewJogo.jpeg)
+![Preview da Partida](./public/imagens/PreviewPartida.jpeg)               
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Sobre o Projeto
+O **Naruto Pixel Battle Game** é uma aplicação web que simula confrontos entre os shinobis do anime. O projeto foi estruturado para fornecer uma experiência de usuário (UX) gamificada, dividida em fluxos claros e lógicos, consumindo a lógica de persistência e regras vindas da API em Java.
 
-## React Compiler
+**Repositório do Back-end (API Java):** [Clique aqui para acessar o repositório do servidor](https://github.com/mtmattoz/ApiNaruto-Java.git)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Fluxo da Aplicação & Telas
 
-## Expanding the ESLint configuration
+1. **Tela Inicial:** Apresentação do jogo com identidade visual imersiva do universo Naruto.
+2. **Seleção de Personagens:** Aba interativa onde o jogador escolhe seu próprio personagem e define quem será o rival na disputa.
+3. **Arena de Batalha (Combate por Turnos):** Mecânica central do jogo onde as ações acontecem de forma estratégica, alternando os turnos de ataque e defesa entre os shinobis com atualização de status em tempo real.
+4. **Tela de Resultado (Vitória/Derrota):** Exibição dinâmica de um GIF temático correspondente ao ninja vitorioso da partida.
+5. **Histórico de Partidas:** Seção dedicada para listar e revisar os resultados dos confrontos anteriores gravados no banco de dados.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tecnologias e Ferramentas Utilizadas
+* **React** + **Vite** (Garantindo um build e HMR ultrarrápidos)
+* **JavaScript (ES6+)** / **JSX**
+* **[CSS3 / Tailwind CSS / Styled Components]**
+* **[Axios ou Fetch API]** para requisições e consumo dos endpoints da API Java
+
+## Funcionalidades em Destaque
+* **Gerenciamento de Estado Complexo:** Controle preciso do fluxo do jogo (Início -> Seleção -> Batalha -> Resultado -> Histórico).
+* **Lógica de Turnos no Front-end:** Alternância de estados e ações de combate calculadas de forma dinâmica.
+* **Renderização Condicional:** Transição suave entre as telas com base no progresso do jogador.
+* **Consumo de Mídia Dinâmica:** Renderização de GIFs customizados baseados no ID ou nome do personagem vencedor.
+
+## Como executar o projeto localmente
+
+### Pré-requisitos
+Você precisará do Node.js (versão 18+ recomendada) e de um gerenciador de pacotes (`npm` ou `yarn`).
+* Nota: Para carregar os dados dos personagens e salvar o histórico, certifique-se de que a [API em Java](https://github.com/mtmattoz/ApiNaruto-Java.git) esteja rodando em segundo plano.*
+
+### Passo a passo
+
+1. Clone o repositório:
+```bash
+git clone [https://github.com/mtmattoz/FrontApiNaruto.git]
+
+cd nome-do-repositorio
+
+npm install
+
+npm run dev 
